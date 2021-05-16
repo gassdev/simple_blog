@@ -6,6 +6,8 @@ require_once 'libraries/models/Model.php';
  */
 class Comment extends Model
 {
+    protected $table = 'comments';
+
     /**
      * @return array
      */
@@ -18,33 +20,6 @@ class Comment extends Model
         $commentaires = $query->fetchAll();
 
         return $commentaires;
-    }
-
-    /**
-     * findComment
-     *
-     * @param  mixed $id
-     * @return void
-     */
-    public function find($id)
-    {
-        $query = $this->pdo->prepare('SELECT * FROM comments WHERE id = :id');
-        $query->execute(['id' => $id]);
-        $comment = $query->fetch();
-
-        return $comment;
-    }
-
-    /**
-     * deleteComment
-     *
-     * @param  mixed $id
-     * @return void
-     */
-    public function delete($id)
-    {
-        $query = $this->pdo->prepare('DELETE FROM comments WHERE id = :id');
-        $query->execute(['id' => $id]);
     }
 
     /**
