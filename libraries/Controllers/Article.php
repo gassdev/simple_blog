@@ -2,9 +2,6 @@
 namespace Controllers;
 
 require_once 'libraries/utils.php';
-require_once 'libraries/controllers/Controller.php';
-require_once 'libraries/models/Article.php';
-require_once 'libraries/models/Comment.php';
 
 class Article extends Controller
 {
@@ -93,7 +90,7 @@ class Article extends Controller
         /**
          * 4. Réelle suppression de l'article
          */
-        $model->delete($id);
+        $this->model->delete($id);
 
         /**
          * 5. Redirection vers la page d'accueil
